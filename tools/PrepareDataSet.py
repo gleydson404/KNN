@@ -4,6 +4,8 @@ import numpy as np
 from os import listdir
 from os.path import isfile, join
 
+EXTENSION = ".csv"
+
 
 FILE = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/a1_va3.csv"
 FILE_REDUCED = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData/a3_va3_reduced.csv"
@@ -35,12 +37,12 @@ def make_dataset():
                     outfile.write(line)
 
 
-def get_dataset():
+def get_dataset(file):
     x = []
     y = []
     dataset = {}
 
-    with open(FILE, 'rb') as csvfile:
+    with open(file, 'rb') as csvfile:
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
         all_samples = list(spamreader)
 
@@ -57,5 +59,6 @@ def get_dataset():
     # for i in range(len(x)):
     #     print('X = % s' %x[i])
     #     print('Y = % s' %y[i])
+
 
 # get_dataset()

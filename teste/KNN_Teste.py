@@ -3,7 +3,7 @@
 from sklearn import neighbors
 import copy
 
-from facade.tools import PrepareDataSet
+from tools import PrepareDataSet
 
 
 weight = 'distance'
