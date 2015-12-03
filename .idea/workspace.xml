@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cf0266d-27ac-46b4-821b-8038f8ade5e3" name="Default" comment="Melhorias na função que get_data_set, que agora me retorna uma matriz, de acordo com o arquivo que eu passar.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/teste/KNN_Teste.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/teste/KNN_TESTE.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/PrepareDataSet.py" afterPath="$PROJECT_DIR$/tools/PrepareDataSet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Rum.py" afterPath="$PROJECT_DIR$/Rum.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/Windowing.py" afterPath="$PROJECT_DIR$/tools/Windowing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="4cf0266d-27ac-46b4-821b-8038f8ade5e3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KNN.iws" />
@@ -96,8 +90,8 @@
       <file leaf-file-name="KNN_Teste.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/teste/KNN_Teste.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3325062" vertical-offset="298" max-vertical-offset="3222">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.5111663" vertical-offset="298" max-vertical-offset="3222">
+              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
               <folding>
                 <element signature="e#25#54#0" expanded="true" />
               </folding>
@@ -809,12 +803,19 @@
       <workItem from="1448586342837" duration="35539000" />
       <workItem from="1448936149833" duration="696000" />
       <workItem from="1449160436628" duration="6895000" />
-      <workItem from="1449177231626" duration="2971000" />
+      <workItem from="1449177231626" duration="2982000" />
     </task>
+    <task id="LOCAL-00001" summary="Melhorias na função que get_data_set, que agora me retorna uma matriz, de acordo com o arquivo que eu passar.">
+      <created>1449180557290</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1449180557290</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116070000" />
+    <option name="totallyTimeSpent" value="116081000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1323,8 +1324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/teste/KNN_Teste.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325062" vertical-offset="298" max-vertical-offset="3222">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.5111663" vertical-offset="298" max-vertical-offset="3222">
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
           <folding>
             <element signature="e#25#54#0" expanded="true" />
           </folding>
