@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cf0266d-27ac-46b4-821b-8038f8ade5e3" name="Default" comment="Desenvolvimento do Script para colheira de resultados.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/PrepareDataSet.py" afterPath="$PROJECT_DIR$/tools/PrepareDataSet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Run.py" afterPath="$PROJECT_DIR$/Run.py" />
+    <list default="true" id="4cf0266d-27ac-46b4-821b-8038f8ade5e3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KNN.iws" />
@@ -827,7 +825,7 @@
       <workItem from="1448936149833" duration="696000" />
       <workItem from="1449160436628" duration="6895000" />
       <workItem from="1449177231626" duration="3964000" />
-      <workItem from="1449246493648" duration="3827000" />
+      <workItem from="1449246493648" duration="3839000" />
     </task>
     <task id="LOCAL-00001" summary="Melhorias na função que get_data_set, que agora me retorna uma matriz, de acordo com o arquivo que eu passar.">
       <created>1449180557290</created>
@@ -865,11 +863,17 @@
       <option name="project" value="LOCAL" />
       <updated>1449181321850</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Desenvolvimento do Script para colheira de resultados.">
+      <created>1449253380531</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1449253380531</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120890000" />
+    <option name="totallyTimeSpent" value="120902000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
