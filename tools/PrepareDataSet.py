@@ -61,4 +61,9 @@ def get_dataset(file):
     #     print('Y = % s' %y[i])
 
 
-# get_dataset()
+def get_training_data(training_slice, data):
+    total_lines = data.shape[0]
+    print total_lines
+    print float(training_slice)/float(100)
+    percentage = (total_lines * (float(training_slice)/float(100)))
+    return data[0:percentage, :], data[percentage+1:total_lines, :]
