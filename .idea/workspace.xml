@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cf0266d-27ac-46b4-821b-8038f8ade5e3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/facade/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/teste/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tools/__init__.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/facade/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/teste/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/a1_va3_reduced_pred" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="KNN.iws" />
@@ -106,11 +107,9 @@
       <file leaf-file-name="PCA.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tools/PCA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22332506" vertical-offset="0" max-vertical-offset="2772">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding>
-                <element signature="e#24#42#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.089330025" vertical-offset="0" max-vertical-offset="2772">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -828,7 +827,7 @@
       <workItem from="1449160436628" duration="6895000" />
       <workItem from="1449177231626" duration="3964000" />
       <workItem from="1449246493648" duration="20521000" />
-      <workItem from="1449357070485" duration="12874000" />
+      <workItem from="1449357070485" duration="12935000" />
     </task>
     <task id="LOCAL-00001" summary="Melhorias na função que get_data_set, que agora me retorna uma matriz, de acordo com o arquivo que eu passar.">
       <created>1449180557290</created>
@@ -890,11 +889,17 @@
       <option name="project" value="LOCAL" />
       <updated>1449370608700</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Desenvolvimento do Script para colheira de resultados.">
+      <created>1449375558916</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1449375558916</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150458000" />
+    <option name="totallyTimeSpent" value="150519000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1502,11 +1507,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tools/PCA.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22332506" vertical-offset="0" max-vertical-offset="2772">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#42#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.089330025" vertical-offset="0" max-vertical-offset="2772">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
