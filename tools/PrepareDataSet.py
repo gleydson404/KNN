@@ -55,22 +55,23 @@ def get_dataset(file):
         x.append(np.asarray(line[:-1]))
         y.append(line[-1:])
 
-    x = np.matrix(x)
-    x = x.astype(np.float)
+    x = np.matrix(x).astype(np.float)
+    # x = x.astype(np.float)
+
     dataset['x'] = x
     dataset['y'] = np.squeeze(np.asarray(y))
 
-    print dataset['y']
-
-    return dataset
     # for i in range(len(x)):
     #     print('X = % s' %x[i])
     #     print('Y = % s' %y[i])
+    return dataset
 
 
 def get_training_data(training_slice, data, type):
     total_lines = data.shape[0]
+    print total_lines
     percentage = (total_lines * (float(training_slice)/float(100)))
+    print percentage
     if type == 'x':
         return data[0:percentage, :], data[percentage+1:total_lines, :]
     elif type == 'y':

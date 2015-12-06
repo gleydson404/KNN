@@ -1,6 +1,7 @@
 __author__ = 'gleydson'
 import operator as op
 from collections import Counter
+import numpy as np
 
 from facade import Instance, EuclidianDistance
 
@@ -24,7 +25,7 @@ class KNNClassifier(object):
         ed = EuclidianDistance.EuclidianDistance
 
         for index in range(len(self.x_train)):
-            distance = ed.calculate(x, self.x_train[index])
+            distance = ed.calculate(x, np.squeeze(np.asarray(self.x_train[index])))
             instance = Instance.Instance(self.x_train[index], self.y_train[index])
             distances.append((instance, distance))
 
