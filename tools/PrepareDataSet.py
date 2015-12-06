@@ -6,9 +6,14 @@ from os.path import isfile, join
 
 EXTENSION = ".csv"
 
+FILE_NAME = "a3_va3"
+FILE_NAME_REDUCED = FILE_NAME+"_reduced"
+FILE_NAME_REDUCED_PRED = FILE_NAME+"_reduced_pred"
+FILE_NAME_WINDOWED = FILE_NAME+"_windowed"
 
-FILE = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/a1_va3.csv"
-FILE_REDUCED = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData/a3_va3_reduced.csv"
+FILE = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/"+FILE_NAME+EXTENSION
+FILE_REDUCED = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData/"+FILE_NAME_REDUCED+EXTENSION
+FILE_REDUCED_PRED = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData/"+FILE_NAME_REDUCED_PRED+EXTENSION
 PATH = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData"
 
 
@@ -53,7 +58,9 @@ def get_dataset(file):
     x = np.matrix(x)
     x = x.astype(np.float)
     dataset['x'] = x
-    dataset['y'] = y
+    dataset['y'] = np.squeeze(np.asarray(y))
+
+    print dataset['y']
 
     return dataset
     # for i in range(len(x)):
@@ -61,9 +68,10 @@ def get_dataset(file):
     #     print('Y = % s' %y[i])
 
 
-def get_training_data(training_slice, data):
+def get_training_data(training_slice, data, type):
     total_lines = data.shape[0]
-    print total_lines
-    print float(training_slice)/float(100)
     percentage = (total_lines * (float(training_slice)/float(100)))
-    return data[0:percentage, :], data[percentage+1:total_lines, :]
+    if type == 'x':
+        return data[0:percentage, :], data[percentage+1:total_lines, :]
+    elif type == 'y':
+        return data[0:percentage], data[percentage+1:total_lines]

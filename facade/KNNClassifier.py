@@ -21,11 +21,11 @@ class KNNClassifier(object):
 
     def classify(self, x):
         distances = []
-        ed = EuclidianDistance
+        ed = EuclidianDistance.EuclidianDistance
 
         for index in range(len(self.x_train)):
             distance = ed.calculate(x, self.x_train[index])
-            instance = Instance(self.x_train[index], self.y_train[index])
+            instance = Instance.Instance(self.x_train[index], self.y_train[index])
             distances.append((instance, distance))
 
         distances.sort(key=op.itemgetter(1))

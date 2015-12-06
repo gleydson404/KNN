@@ -1,9 +1,7 @@
 __author__ = 'gleydson'
 import numpy as np
-
 import matplotlib.pyplot as plt
-
-from facade.tools import PrepareDataSet
+from tools import PrepareDataSet as pds
 
 
 # random seed for consistency
@@ -30,21 +28,17 @@ def calculate_mean_vector(original_matrix):
     return mean_vector
 
 
-
-# print('Matriz Original', all_samples)
-
-
 def calculate_cov_matrix(original_matrix, mean_vector):
     return (original_matrix - mean_vector).T.dot((original_matrix - mean_vector)) / (original_matrix.shape[0]-1)
 
 
-
-
 def execute(original_matrix):
-    mean_vector = calculate_mean_vector(original_matrix.T)
+    original_matrix_x = original_matrix['x']
+
+    mean_vector = calculate_mean_vector(original_matrix_x.T)
     print len(mean_vector)
 
-    cov_mat2 = calculate_cov_matrix(original_matrix, mean_vector)
+    cov_mat2 = calculate_cov_matrix(original_matrix_x, mean_vector)
 
     # cov_mat2 = np.cov(original_matrix)
 
@@ -83,16 +77,25 @@ def execute(original_matrix):
     #
     # print('Matrix w\n', matrix_w)
 
-    print('shape original',original_matrix.shape)
-
-    return original_matrix.dot(eigen_vectors_choose.T)
-
-    # print ('Auto vetores com maior autovalor \\n', eigen_pairs)
-
-    # print("Matrix reduziada \n", Y)
+    print('shape original', original_matrix_x.shape)
+    print('tamanhoy',len(original_matrix['y']))
 
 
-# execute(all_samples.T)
+    reduced_matrix = original_matrix_x.dot(eigen_vectors_choose.T)
+    arrayy = np.array(original_matrix['y'], dtype=np.dtype('a1'))
+
+    print('tamanhoy', arrayy.shape)
+
+    lines_to_print = []
+
+    print ('reduzida',  reduced_matrix)
+    print('shape da reduzida', reduced_matrix.shape)
+    # reduced_matrixR = np.column_stack((reduced_matrix, arrayy[0]))
+
+    return reduced_matrix
+
+
+
 
 #
 #
@@ -116,16 +119,30 @@ def plot_explained_variance(eigen_values):
 
     print soma
 
-    plt.plot(x,y, linestyle='--', marker='o', color='b')
+    plt.plot(x, y, linestyle='--', marker='o', color='b')
     plt.ylabel("Porcentagem de Representacao")
     plt.xlabel("Indice dos Autovalores")
     plt.show()
 
 
-dataset = PrepareDataSet.get_dataset()
-reduced_matrix = execute(dataset['x'])
-print np.savetxt(PrepareDataSet.PATH+"/a3_va3_reduced.csv", reduced_matrix, delimiter=',', fmt='%.8f')
+# dataset = pds.get_dataset(pds.FILE)
+dataset = pds.get_dataset("")
+reduced_matrix = execute(dataset)
+
+print ("final", reduced_matrix)
 
 
-# execute_windowed()
-# execute()
+# with open(pds.PATH+"/a1_va3_reducedR.csv", 'w') as csvw:
+#     csvw = csv.writer(csvw, delimiter=',')
+#     csvw.writerows(reduced_matrix)
+
+np.savetxt(pds.FILE_REDUCED, reduced_matrix, delimiter=',', fmt='%.8f')
+
+print('y', dataset['y'])
+
+outf = open(pds.FILE_REDUCED_PRED, 'w')
+for index in range(len(dataset['y'])):
+    outf.write((str(dataset['y'][index])+"\n").replace("[", "").replace("]", "").replace("'", ""))
+outf.close()
+
+
