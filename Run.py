@@ -1,41 +1,75 @@
 __author__ = 'gleydson'
-from tools import PrepareDataSet as pds
+from tools import PrepareDataSet as Pds
 from os import listdir
 from os.path import isfile, join
 from facade import KNNClassifier as Knn
 import numpy as np
+from sklearn.metrics import confusion_matrix
 
-TRAINING_SLICE = 70
 
-k = 5
+TRAINING = 0
+TEST = 1
 
-files = [f for f in listdir(pds.PATH) if isfile(join(pds.PATH, f)) and "windowed" in f]
+k = 3
+
+files = [f for f in listdir(Pds.PATH) if isfile(join(Pds.PATH, f)) and "windowed_10" in f]
+
+files.sort()
 
 print files
 
-data = [pds.get_dataset(pds.PATH+"/"+file) for file in files]
+data = [Pds.get_dataset(Pds.PATH+"/"+file) for file in files]
 
-data_x = [pds.get_training_data(TRAINING_SLICE, data[index]['x'], type='x') for index in range(len(data))]
+data_x = [Pds.get_training_data(Pds.TRAINING_SLICE, data[index]['x'], type='x') for index in range(len(data))]
 
-data_y = [pds.get_training_data(TRAINING_SLICE, data[index]['y'], type='y') for index in range(len(data))]
+data_y = [Pds.get_training_data(Pds.TRAINING_SLICE, data[index]['y'], type='y') for index in range(len(data))]
 
-# print ('squeese',np.squeeze(np.asarray(data_x[index][0][0])))
 
-print ("shape",data_x[index][0].shape)
-
-clfs = [Knn.KNNClassifier(data_x[index][0], data_y[index][0], k) for index in range(len(data))]
+clfs = [Knn.KNNClassifier(data_x[index][TRAINING], data_y[index][TRAINING], k) for index in range(len(data))]
 # clf = knn.KNNClassifier(data_x[1][1], data_y[1][1], k)
 
-# results = {}
+
+# results = []
 # for index in range(len(clfs)):
 #     predictions = []
-#     for item in data_y[index][1]:
-#         predictions.append(clfs[index].classify(data_y[index][item]))
-#     results[index] = predictions
+#     for inner in range(len(data_x[index][1])):
+#         predictions.append(clfs[index].classify(np.squeeze(np.asarray(data_x[index][TEST][inner]))))
+#     results.append(predictions)
+#
+# print len(results)
+#
+# print len(data_y[index][TEST])
+#
+# print len(results[0])
+#
+# confusions_matrix = [confusion_matrix(data_y[index][TEST], results[index]) for index in range(len(results))]
+#
+# for index in range(len(confusions_matrix)):
+#     with open(str(files[index])+"_confusion_matrix.txt", 'w') as f:
+#         f.write(confusions_matrix[index])
 
-# predictions = []
-# for item in range(len(data_x[0][1])):
-#     print item[0]
-print ('predic',  np.squeeze(np.asarray(data_x[0][1][0])))
-# predictions.append(clfs[0].classify(item))
-print('pred', clfs[0].classify(np.squeeze(np.asarray(data_x[0][1][0]))))
+# for item in results:
+#     confusion_matrix(test_instances[]results[item]
+
+
+
+results = []
+# for index in range(len(clfs)):
+predictions = []
+for inner in range(len(data_x[0][TEST])):
+    predictions.append(clfs[0].classify(np.squeeze(np.asarray(data_x[0][TEST][inner]))))
+    print ("valor real, ", data_y[0][TEST][inner])
+    print ("predicao",predictions[len(predictions)-1])
+    print ("Iteracao", len(predictions))
+
+print('tampred', len(predictions))
+print('tamy', len(data_y[0][TEST]))
+
+
+cm = confusion_matrix(data_y[0][TEST], predictions, Pds.TARGET_NAMES)
+
+Pds.plot_confusion_matrix(cm)
+
+
+
+# print('pred', clfs[0].classify(np.squeeze(np.asarray(data_x[0][1][0]))))

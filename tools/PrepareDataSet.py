@@ -3,10 +3,13 @@ import csv
 import numpy as np
 from os import listdir
 from os.path import isfile, join
+import matplotlib.pyplot as Plt
 
 EXTENSION = ".csv"
 
-FILE_NAME = "a3_va3"
+TRAINING_SLICE = 70
+
+FILE_NAME = "a1_va3"
 FILE_NAME_REDUCED = FILE_NAME+"_reduced"
 FILE_NAME_REDUCED_PRED = FILE_NAME+"_reduced_pred"
 FILE_NAME_WINDOWED = FILE_NAME+"_windowed"
@@ -15,6 +18,8 @@ FILE = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/Gestur
 FILE_REDUCED = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData/"+FILE_NAME_REDUCED+EXTENSION
 FILE_REDUCED_PRED = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData/"+FILE_NAME_REDUCED_PRED+EXTENSION
 PATH = "/home/gleydson/Documents/Mestrado-SistemasDeInformaçãoUSP2015.2/GesturePhasesDataset/workData"
+
+TARGET_NAMES = ['D', 'P', 'S', 'H', 'R']
 
 
 def getlines():
@@ -67,12 +72,48 @@ def get_dataset(file):
     return dataset
 
 
+def calculate_percentage(rate, total):
+    return int(total * (float(rate)/float(100)))
+
+
 def get_training_data(training_slice, data, type):
     total_lines = data.shape[0]
-    print total_lines
-    percentage = (total_lines * (float(training_slice)/float(100)))
-    print percentage
+    # percentage = (total_lines * (float(training_slice)/float(100)))
+    percentage = calculate_percentage(training_slice, total_lines)
     if type == 'x':
         return data[0:percentage, :], data[percentage+1:total_lines, :]
     elif type == 'y':
         return data[0:percentage], data[percentage+1:total_lines]
+
+
+def get_real_classes(file):
+    with open(file, 'r') as f:
+        lines = f.readlines()
+        number_lines = len(lines)
+        percentage = calculate_percentage(TRAINING_SLICE, number_lines)
+        true_classes = [lines[index] for index in range(percentage, number_lines)]
+    return true_classes
+
+
+def plot_confusion_matrix(cm):
+    title = 'Confusion Matrix'
+    Plt.imshow(cm, interpolation='nearest', cmap=Plt.cm.Blues)
+
+    width = len(cm)
+    height = len(cm[0])
+
+    for x in xrange(width):
+        for y in xrange(height):
+            Plt.annotate(str(cm[x][y]), xy=(y, x),
+                    horizontalalignment='center',
+                    verticalalignment='center')
+
+    Plt.title(title)
+    Plt.colorbar()
+    tick_marks = np.arange(len(TARGET_NAMES))
+    Plt.xticks(tick_marks, TARGET_NAMES)
+    Plt.yticks(tick_marks, TARGET_NAMES)
+    Plt.tight_layout()
+    Plt.ylabel('True label')
+    Plt.xlabel('Predicted label')
+    Plt.show()
